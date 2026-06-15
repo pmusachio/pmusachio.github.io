@@ -136,31 +136,31 @@
 									<h2 class="major">Skills</h2>
 									<div class="features">
 										<article>
-											<h3 class="major">Predictive Modeling & Classification</h3>
+											<h3 class="major">Predictive Modeling & Segmentation</h3>
 											<ul>
-												<li>Classification and propensity ranking models for churn, fraud, cross-sell, credit risk and disease prediction (ROC AUC, Recall@k, Lift@k)</li>
-												<li>Customer segmentation with RFM, K-Means and clustering quality metrics (Silhouette, Davies-Bouldin)</li>
+												<li>Classification and propensity-ranking models for churn, fraud, cross-sell, credit default and disease screening, with class-imbalance handling and evaluation by ROC AUC, PR-AUC, Lift@k and NDCG@5</li>
+												<li>Customer segmentation with RFM and K-Means, validated by Silhouette, Davies-Bouldin and Calinski-Harabasz</li>
 											</ul>
 										</article>
 										<article>
-											<h3 class="major">Time Series & Forecasting</h3>
+											<h3 class="major">Time Series, Forecasting & Optimization</h3>
 											<ul>
-												<li>Sales and demand forecasting with exogenous variables across multiple stores and regions</li>
-												<li>Channel-level revenue response modeling with saturation and adstock (carryover) effects</li>
+												<li>Daily store-sales forecasting with calendar, promotion and competition features (RMSPE)</li>
+												<li>Channel revenue-response modeling with saturation and adstock effects, plus constrained budget allocation (SLSQP)</li>
 											</ul>
 										</article>
 										<article>
 											<h3 class="major">Statistical Analysis & Experimentation</h3>
 											<ul>
-												<li>A/B testing with two-proportion z-tests, lift estimation and significance vs. effect-size trade-offs</li>
-												<li>Price elasticity estimation via log-log regression with confidence intervals and revenue simulation</li>
+												<li>A/B testing with two-proportion z-tests, confidence intervals and power / sample-size design</li>
+												<li>Price-elasticity estimation via log-log regression with confidence intervals and revenue simulation</li>
 											</ul>
 										</article>
 										<article>
-											<h3 class="major">Machine Learning Engineering | MLOps</h3>
+											<h3 class="major">ML Engineering & Deployment</h3>
 											<ul>
-												<li>Reproducible scikit-learn pipelines, experiment tracking and model registry with MLflow</li>
-												<li>Model delivery via FastAPI, Streamlit dashboards, Telegram bots and Docker, following an end-to-end ML workflow</li>
+												<li>Reproducible scikit-learn pipelines with serialized, self-contained artifacts and model cards</li>
+												<li>Interactive Streamlit apps with continuous deployment from GitHub to Render</li>
 											</ul>
 										</article>
 									</div>
@@ -173,7 +173,7 @@
 									<section class="features">
 										<article>
 											<h3 class="major">Rossmann Store Sales<br>Sales Forecasting</h3>
-											<p>Forecasting daily sales for 3,000+ drugstores six weeks ahead, delivered through an interactive Streamlit dashboard.</p>
+											<p>Daily store-sales forecasting with gradient boosting on calendar, promotion and competition signals (RMSPE 0.25).</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/rossmann-store-sales.webm" type="video/webm">
 											</video>
@@ -184,7 +184,7 @@
 										</article>
 										<article>
 											<h3 class="major">Insiders Loyalty Program<br>Customer Segmentation</h3>
-											<p>RFM analysis and K-Means clustering to identify high-value customers and size an exclusive loyalty program.</p>
+											<p>RFM and K-Means segmentation that isolates the high-value tier (16% of customers, 64% of revenue) for a loyalty program.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/insiders-loyalty-program.webm" type="video/webm">
 											</video>
@@ -195,7 +195,7 @@
 										</article>
 										<article>
 											<h3 class="major">Health Insurance Cross-Sell<br>Propensity Ranking</h3>
-											<p>Ranking model that scores customers by likelihood to buy vehicle insurance, maximizing lift within a fixed sales capacity.</p>
+											<p>Propensity-ranking model that orders customers by likelihood to buy vehicle insurance, maximizing lift within a fixed call capacity.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/health-insurance-cross-sell.webm" type="video/webm">
 											</video>
@@ -206,7 +206,7 @@
 										</article>
 										<article>
 											<h3 class="major">Airbnb First Booking<br>Multi-class Prediction</h3>
-											<p>Predicting the first booking destination of new users (NDCG@5) and serving the ranked recommendations through an interactive Streamlit app.</p>
+											<p>Multiclass model ranking a new user's first-booking destination across 12 outcomes, optimized for NDCG@5.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/airbnb-first-booking.webm" type="video/webm">
 											</video>
@@ -217,7 +217,7 @@
 										</article>
 										<article>
 											<h3 class="major">Client Churn Prediction<br>Classification</h3>
-											<p>Scoring model that ranks bank customers by churn probability so retention teams can focus budget on top-risk clients.</p>
+											<p>Churn-propensity ranking that focuses retention budget on the bank customers most likely to leave.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/client-churn-prediction.webm" type="video/webm">
 											</video>
@@ -228,7 +228,7 @@
 										</article>
 										<article>
 											<h3 class="major">Cardio Catch Disease<br>Classification</h3>
-											<p>Cardiovascular risk classification model that translates accuracy gains directly into incremental clinic revenue.</p>
+											<p>Cardiovascular-disease screening from routine exam data, tuned on the sensitivity/specificity trade-off for triage.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/cardio-catch-disease.webm" type="video/webm">
 											</video>
@@ -239,7 +239,7 @@
 										</article>
 										<article>
 											<h3 class="major">Blocker Fraud Company<br>Fraud Detection</h3>
-											<p>Detecting fraudulent financial transactions and feeding a prioritized investigation queue via an interactive Streamlit dashboard.</p>
+											<p>Fraud detection for mobile-money transfers under extreme class imbalance, prioritizing a fixed review queue by protected value.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/blocker-fraud-company.webm" type="video/webm">
 											</video>
@@ -250,7 +250,7 @@
 										</article>
 										<article>
 											<h3 class="major">A/B Testing Ecommerce<br>Experimentation</h3>
-											<p>Statistical analysis of a checkout experiment using two-proportion z-tests and lift estimation to support a launch decision.</p>
+											<p>Landing-page A/B test with a two-proportion z-test and a sample-size/power calculator for the next experiment.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/ab-testing-ecommerce.webm" type="video/webm">
 											</video>
@@ -261,7 +261,7 @@
 										</article>
 										<article>
 											<h3 class="major">Price Elasticity<br>Regression</h3>
-											<p>Per-product price-demand sensitivity estimated via log-log regression, simulating the revenue impact of discount scenarios.</p>
+											<p>Per-product price elasticity via log-log regression, simulating the revenue impact of discounts on the identifiable subset.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/price-elasticity.webm" type="video/webm">
 											</video>
@@ -271,8 +271,8 @@
 											</ul>
 										</article>
 										<article>
-											<h3 class="major">MLflow Credit Risk<br>Classification & MLOps</h3>
-											<p>Credit default risk classification with a reproducible, fully tracked training pipeline.</p>
+											<h3 class="major">MLflow Credit Risk<br>Risk Classification</h3>
+											<p>Credit-default risk ranking under class imbalance, focusing review on the highest-risk applicants (4x lift at capacity).</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/mlflow-credit-risk.webm" type="video/webm">
 											</video>
@@ -283,7 +283,7 @@
 										</article>
 										<article>
 											<h3 class="major">Bank Marketing Strategy<br>Customer Segmentation</h3>
-											<p>Clustering credit card customer behavior into actionable segments to guide marketing and relationship strategies.</p>
+											<p>K-Means segmentation of credit-card usage into actionable marketing segments.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/bank-marketing-strategy.webm" type="video/webm">
 											</video>
@@ -294,7 +294,7 @@
 										</article>
 										<article>
 											<h3 class="major">Global Ads Performance<br>Budget Optimization</h3>
-											<p>Models diminishing returns and carryover effects per ad channel, then optimizes daily budget allocation to maximize revenue.</p>
+											<p>Marketing-mix model (saturation + adstock) with an A/B test and constrained budget optimization to maximize ad revenue.</p>
 											<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;margin-bottom:1.25em;">
 												<source src="images/global-ads-performance.webm" type="video/webm">
 											</video>
