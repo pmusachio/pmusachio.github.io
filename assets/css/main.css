@@ -3272,132 +3272,138 @@ input, select, textarea {
 	max-width: 100%;
 }
 
-.timeline {
-	position: relative;
+/* Horizontal Timeline */
+.timeline-h {
 	width: 100%;
-	max-width: 55em; 
-	margin: 0 auto;
-	padding: 2em 0;
+	overflow-x: auto;
+	padding: 1em 0 2em;
 }
 
-.timeline ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+.tl-track {
+	display: flex;
+	position: relative;
+	min-width: 560px;
+	padding: 0 1.5em;
 }
 
-.timeline ul:before {
+.tl-track::before {
 	content: '';
 	position: absolute;
-	left: 2px; 
-	top: 0;
-	width: 2px;
-	height: 100%;
+	left: 0;
+	right: 0;
+	top: calc(100px + 6px);
+	height: 2px;
 	background: rgba(255, 255, 255, 0.125);
-	z-index: 0; 
 }
 
-.timeline ul li {
-	position: relative;
-	padding-left: 60px; 
-	margin-bottom: 0.25em; 
-}
-
-.timeline ul li:last-child {
-	margin-bottom: 0;
-}
-
-.timeline-content {
-	padding: 0.5em 0; 
-	border-radius: 0; 
-	background: none; 
+.tl-col {
+	flex: 1;
 	display: flex;
-	align-items: center; 
-	gap: 1em; 
+	flex-direction: column;
+	align-items: center;
+	min-width: 0;
 }
 
+.tl-above-zone {
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.tl-col.above .tl-above-zone::after {
+	content: '';
+	display: block;
+	width: 1px;
+	height: 8px;
+	background: rgba(255, 255, 255, 0.25);
+	margin-top: 6px;
+	flex-shrink: 0;
+}
+
+.tl-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.4);
+	flex-shrink: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.tl-dot .year {
+	position: absolute;
+	font-size: 0.6em;
+	color: rgba(255, 255, 255, 0.55);
+	font-family: Raleway, Helvetica, sans-serif;
+	font-weight: 700;
+	white-space: nowrap;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 14px;
+	top: auto;
+}
+
+.tl-col.above .tl-dot .year {
+	top: 14px;
+	bottom: auto;
+}
+
+.tl-below-zone {
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding-top: 10px;
+	text-align: center;
+}
+
+.tl-col:not(.above) .tl-below-zone::before {
+	content: '';
+	display: block;
+	width: 1px;
+	height: 8px;
+	background: rgba(255, 255, 255, 0.25);
+	margin-bottom: 6px;
+	flex-shrink: 0;
+}
 
 .timeline-logo {
-	width: 35px; 
-	height: 35px;
-	border-radius: 5px; 
-	object-fit: contain; 
-	background-color: transparent; 
-	padding: 0; 
-	flex-shrink: 0; 
+	width: 28px;
+	height: 28px;
+	border-radius: 4px;
+	object-fit: contain;
+	background-color: transparent;
+	padding: 0;
+	flex-shrink: 0;
+	filter: grayscale(100%);
+	transition: filter 0.3s ease;
 }
 
 .timeline-logo:hover {
 	filter: grayscale(0%);
 }
 
-.timeline ul li > .year {
-	position: absolute;
-	left: 0; 
-	top: 0.5em; 
-	width: 50px; 
-	z-index: 1;
-	
-	text-align: center;
-	color: #ffffff;
-	font-family: Raleway, Helvetica, sans-serif;
-	font-weight: 700;
-	font-size: 0.9em;
-	background-color: #242734; 
-	padding: 0 5px; 
-	transform: translateX(-50%); 
-}
-
-.timeline-content h3 {
+.tl-col h3 {
 	font-family: Raleway, Helvetica, sans-serif;
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	font-size: 0.8em; 
+	letter-spacing: 0.08em;
+	font-size: 0.6em;
 	color: #ffffff;
-	margin: 0; 
+	margin: 0.3em 0 0;
 	padding: 0;
 	border: 0;
+	line-height: 1.2;
 }
 
-.timeline-content p {
+.tl-col p {
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-size: 0.8em; 
-	line-height: 1.3; 
-	color: #ffffff;
-	margin-bottom: 0;
-}
-
-@media screen and (min-width: 737px) {
-    .timeline ul:before {
-        left: 2px; 
-    }
-
-    .timeline ul li {
-        width: 100%; 
-        padding-left: 60px; 
-        padding-right: 0; 
-        text-align: left; 
-        float: none; 
-        clear: both; 
-    }
-
-    .timeline ul li:nth-child(even) {
-        float: none;
-        text-align: left;
-        padding-left: 60px;
-        padding-right: 0;
-    }
-
-    .timeline ul li > .year {
-        left: 0; 
-        right: auto; 
-        top: 0.5em; 
-        transform: translateX(-50%); 
-    }
-
-    .timeline ul:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+	font-size: 0.6em;
+	line-height: 1.3;
+	color: rgba(255, 255, 255, 0.6);
+	margin: 0.2em 0 0;
 }
